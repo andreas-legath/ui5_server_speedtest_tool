@@ -1,0 +1,162 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "at.legath.ui5_speedtest",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.1-2018-02-20"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "at.legath.ui5_speedtest.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "at.legath.ui5_speedtest.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}],
+			"js": [{
+				"uri": "lib/moment.js"
+			}, {
+				"uri": "lib/d3.min.js"
+			}]
+		},
+		"routing": {
+			"targets": {
+				"home": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Home",
+					"title": "Home",
+					"viewLevel": 1
+				},
+				"install": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Install",
+					"title": "Install",
+					"viewLevel": 2
+				},
+				"settings": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Settings",
+					"viewId": "",
+					"viewLevel": 2,
+					"title": "Settings"
+				},
+				"ping": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Ping",
+					"viewLevel": 2
+				},
+				"download": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Download",
+					"viewLevel": 2
+				},
+				"upload": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Upload",
+					"viewLevel": 2
+				}
+			},
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"viewPath": "at.legath.ui5_speedtest.view"
+			},
+			"routes": [{
+				"name": "home",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["home"]
+			}, {
+				"name": "install",
+				"pattern": "install",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["install"]
+			}, {
+				"name": "settings",
+				"pattern": "settings",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["settings"]
+			}, {
+				"name": "ping",
+				"pattern": "ping",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["ping"]
+			}, {
+				"name": "download",
+				"pattern": "download",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["download"]
+			}, {
+				"name": "upload",
+				"pattern": "upload",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["upload"]
+			}]
+		}
+	}
+}

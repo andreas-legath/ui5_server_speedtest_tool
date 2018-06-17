@@ -1,0 +1,38 @@
+<mvc:View controllerName="at.legath.ui5_speedtest.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<Page title="{i18n>title}">
+		<content>
+			<GenericTile class="sapUiSmallMarginBegin sapUiSmallMarginTop tileLayout" header="{i18n>Settings}" press="onSettingsPress">
+				<TileContent>
+					<ImageContent src="sap-icon://settings"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiSmallMarginBegin sapUiSmallMarginTop tileLayout" header="{i18n>Ping}" press="onPingPress">
+				<TileContent unit="{i18n>PingUnit}">
+					<NumericContent value="{lastmeasurement>/ping}" icon="sap-icon://fob-watch"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiSmallMarginBegin sapUiSmallMarginTop tileLayout" header="{i18n>Download}" press="onDownloadPress">
+				<TileContent unit="{i18n>TrafficUnit}">
+					<NumericContent value="{lastmeasurement>/download}" icon="sap-icon://download"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiSmallMarginBegin sapUiSmallMarginTop tileLayout" header="{i18n>Upload}" press="onUploadPress">
+				<TileContent unit="{i18n>TrafficUnit}">
+					<NumericContent value="{lastmeasurement>/upload}" icon="sap-icon://upload"/>
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiSmallMarginBegin sapUiSmallMarginTop tileLayout" header="{i18n>ManualSpeedtest}" press="onManualSpeedtestPress">
+				<TileContent>
+					<ImageContent src="sap-icon://create-entry-time"/>
+				</TileContent>
+			</GenericTile>
+			<BusyDialog id="manualSpeedtestBusyDialog" title="{i18n>ManualSpeedtest}" text="{i18n>ManualSpeedtestRunning}" cancelButtonText="{i18n>DontWantToWait}" showCancelButton="true"/>
+			<GenericTile class="sapUiSmallMarginBegin sapUiSmallMarginTop tileLayout" header="{i18n>DownloadInstall}" press="onDownloadInstallPress">
+				<TileContent>
+					<ImageContent src="sap-icon://keyboard-and-mouse"/>
+				</TileContent>
+			</GenericTile>
+		</content>
+	</Page>
+	</mvc:View>

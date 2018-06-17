@@ -1,0 +1,60 @@
+<mvc:View controllerName="at.legath.ui5_speedtest.controller.Ping" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+	<Page title="{i18n>Ping}" showNavButton="true" navButtonPress="onNavButtonPress">
+		<content>
+			<ObjectHeader title="{i18n>Ping} {i18n>Results}" number="{lastmeasurement>/ping}" numberUnit="{i18n>PingUnit}">
+				<attributes>
+					<ObjectAttribute title="{i18n>LastMeasurement}" text="{lastmeasurement>/datetime}"/>
+				</attributes>
+			</ObjectHeader>
+			<form:SimpleForm editable="true">
+				<form:content>
+					<Label text="{i18n>IntervalToAnalyse}"/>
+					<DateRangeSelection id="intervalToAnalyseDateRangeSelection" change="onIntervalToAnalyseChange"/>
+					<Label text="{i18n>Average}"/>
+					<Text text="{measuredata>/ping/avg} {i18n>PingUnit}"/>
+					<Label text="{i18n>Min}"/>
+					<Text text="{measuredata>/ping/min} {i18n>PingUnit}"/>
+					<Label text="{i18n>Max}"/>
+					<Text text="{measuredata>/ping/max} {i18n>PingUnit}"/>
+					<Label text="{i18n>Outage}"/>
+					<Text text="{measuredata>/ping/out} / {measuredata>/ping/cnt} = {measuredata>/ping/outp}%"/>
+				</form:content>
+			</form:SimpleForm>
+			<Table items="{measuredata>/ping/data}" growing="true" growingThreshold="5">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>Measurements}"/>
+						<ToolbarSpacer/>
+						<Button text="{i18n>DownloadMeasurements}" press="onDownloadMeasurementsPress"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>DateTime}"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="{i18n>ToAverageAbsolute}"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="{i18n>ToAverageRelative}"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="{i18n>MeasuredValue}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{measuredata>datetime}"/>
+							<ObjectNumber number="{measuredata>toavgabs}" unit="{i18n>PingUnit}" state="{ path: 'measuredata>toavgrel', formatter: '.measuredatastate' }"/>
+							<ObjectNumber number="{measuredata>toavgrel}" unit="{i18n>Percentage}" state="{ path: 'measuredata>toavgrel', formatter: '.measuredatastate' }"/>
+							<ObjectNumber number="{measuredata>value}" unit="{i18n>PingUnit}"  state="{ path: 'measuredata>toavgrel', formatter: '.measuredatastate' }"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<FlexBox id="chartFlexBox" alignItems="Start" justifyContent="Center" class="sapUiSmallMarginTop"/>
+		</content>
+	</Page>
+</mvc:View>

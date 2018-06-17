@@ -1,0 +1,53 @@
+<mvc:View controllerName="at.legath.ui5_speedtest.controller.Install" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<Page title="{i18n>DownloadInstall}" showNavButton="true" navButtonPress="onNavButtonPress">
+		<headerContent>
+			<Button text="{i18n>DownloadUI5Speedtest}" press="onDownloadUI5SpeedtestPress"/>
+		</headerContent>
+		<content>
+			<ObjectHeader title="{i18n>HowToInstall}" condensed="true"/>
+			<Panel headerText="1. {i18n>SystemRequirements}" expandable="true" expanded="true">
+				<content>
+					<VBox>
+						<Text text="{i18n>SystemRequirements1}" wrapping="true"/>
+					</VBox>
+				</content>
+			</Panel>
+			<Panel headerText="2. {i18n>PrepareSystem}" expandable="true" expanded="true">
+				<content>
+					<VBox>
+						<Text text="{i18n>PrepareSystem1}" wrapping="true"/>
+						<Text text="{i18n>PrepareSystem2}" wrapping="true" class="sapUiTinyMarginTop"/>
+						<Text text="{i18n>PrepareSystem3}" wrapping="true" class="sapUiTinyMarginTop"/>
+					</VBox>
+				</content>
+			</Panel>
+			
+			<Panel headerText="3. {i18n>DownloadUi5Speedtest}" expandable="true" expanded="true">
+				<content>
+					<VBox>
+						<Text text="{i18n>DownloadUi5Speedtest1}" wrapping="true"/>
+						<Text text="{i18n>DownloadUi5Speedtest2}" wrapping="true" class="sapUiTinyMarginTop"/>
+						<Text text="{i18n>DownloadUi5Speedtest3}" wrapping="true" class="sapUiTinyMarginTop"/>
+					</VBox>
+				</content>
+			</Panel>
+			
+			<Panel headerText="4. {i18n>SetupSpeedtest}" expandable="true" expanded="true">
+				<content>
+					<VBox>
+						<Text text="{i18n>SetupSpeedtest1}" wrapping="true"/>
+						<Text text="{i18n>SetupSpeedtest2}" wrapping="true" class="sapUiTinyMarginTop"/>
+					</VBox>
+				</content>
+			</Panel>
+			<Panel headerText="5. {i18n>Questions}" expandable="true" expanded="true">
+				<content>
+					<VBox>
+						<Text text="{i18n>Questions1}" wrapping="true"/>
+					</VBox>
+				</content>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>
